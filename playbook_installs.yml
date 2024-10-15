@@ -11,3 +11,9 @@
         - libapache2-mod-php
       state: latest
       update_cache: yes
+
+  - name: install mariadb package (Ubuntu)
+    apt:
+      name: mariadb-server
+      state: latest
+    when: ansible_distribution ==  "Ubuntu"
