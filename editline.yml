@@ -1,0 +1,9 @@
+- hosts: all
+  become: true
+  tasks:
+
+  - name: edit line in file
+    lineinfile:
+      path: /home/danasoft/ansible_tutorial/tutorial12
+      regexp: '^edit here'
+      line: This is the new line
