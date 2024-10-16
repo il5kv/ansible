@@ -2,27 +2,15 @@
 
 - hosts: all
   become: true
-  tasks:
+  roles:
+    - base
 
-  - name: install apache2 and php package
-    apt:
-      name: 
-        - apache2
-        - libapache2-mod-php
-      state: latest
-      update_cache: yes
 
-  - name: install mariadb package (Ubuntu)
-    apt:
-      name: mariadb-server
-      state: latest
-    when: ansible_distribution ==  "Ubuntu"
+- hosts: web_servers
+  become: true
+  roles:
+    - web_servers
+    - db_servers    
 
-  - name: copy default html file for site
-    tags: apache,apache2,httpd
-    copy:
-      src: default_site.html
-      dest: /var/www/html/index.html
-      owner: root
-      group: root
-      mode: 0644
+
+
