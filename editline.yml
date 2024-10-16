@@ -5,5 +5,6 @@
   - name: edit line in file
     lineinfile:
       path: /home/danasoft/ansible_tutorial/tutorial12
-      regexp: '^edit here'
-      line: This is the new line
+      regexp: '^This is the new line'
+      line: This is the new line now
+

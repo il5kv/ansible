@@ -14,3 +14,11 @@
     owner: root
     group: root
     mode: 0644
+
+- name: edit line in file
+  lineinfile:
+    path: /home/danasoft/ansible_tutorial/tutorial12
+    regexp: '^This is the new line'
+    line: This is the new line now 2301
+  notify: restart_apache
+
